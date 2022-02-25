@@ -1,7 +1,7 @@
 @extends('inicio')
 
 @section('title')
-    Motos
+    Servicio tecnico
 @endsection
 @section('content')
     <div class="container"></div>

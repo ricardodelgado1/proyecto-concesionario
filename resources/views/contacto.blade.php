@@ -4,10 +4,9 @@
     Contactos
 @endsection
 @section('content')
-    <div class="container"></div>
-    <h1>Esta es la pagina de Contactos</h1>
-    <h2>¡Bienvenido!</h2>
+
 <div class="container">
+<h1>Contacto</h1>
   <form>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nombre</label>

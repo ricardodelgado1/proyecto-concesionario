@@ -4,11 +4,8 @@
     Motos
 @endsection
 @section('content')
-    <div class="container"></div>
-    <h1>Esta es la página de Motos</h1>
-    <h2>¡Bienvenido!</h2>
 
-<table class="table">
+<!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -45,5 +42,36 @@
       <td>250</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+
+
+<div class="container">
+<h1>Catalogo de motos</h1>
+
+   <div class="row">
+
+   @foreach( $motos as  $moto )
+
+
+
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+        <a href="{{ url('/motos/show/' . $moto->id ) }}">
+        <img src="{{$moto['poster']}}" style="height:200px"/>
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">{{$moto->nombre}}</h5>
+            <p class="card-text">{{$moto->descripcion}}</p>
+            <a href="{{ url('/motos/show/' . $moto->id ) }}" class="btn btn-primary">Comprar</a>
+        </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
+
+
+
+</div>
 @endsection

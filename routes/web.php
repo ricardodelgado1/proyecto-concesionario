@@ -13,29 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
+
 
 Route::get('/', 'App\\Http\\Controllers\\HomeController@getHome');
 
-/* Route::get('/inicio', function(){
-    return view('inicio');
-}); */
-Route::get('/contacto', function(){
-    return view('contacto');
-});
-Route::get('/motos', function(){
-    return view('motos');
-});
-Route::get('serviciotecnico', function(){
-    return view('servicios.serviciotecnico');
-});
-Route::get('repuestos', function(){
-    return view('servicios.repuestos');
-});
+Route::get('/contacto', 'App\\Http\\Controllers\\ContactController@getContact');
+
+Route::get('/sobrenosotros', 'App\\Http\\Controllers\\ContactController@getNosotros');
+
+
+Route::get('/motos', 'App\\Http\\Controllers\\MotosController@getIndex');
+
+Route::get('motos/show/{id}', 'App\\Http\\Controllers\\MotosController@getShow');
+
+Route::get('motos/create', 'App\\Http\\Controllers\\MotosController@getCreate');
+Route::post('motos/create', 'App\\Http\\Controllers\\MotosController@addMoto');
+ /*   Route::get('motos/edit/{id}', 'App\\Http\\Controllers\\MotosController@getEdit');
+ */
+
+
+Route::get('/serviciotecnico', 'App\\Http\\Controllers\\ServiceController@getMantenimiento');
+
+Route::get('/repuestos', 'App\\Http\\Controllers\\ServiceController@getRepuesto');
+
+
+
 Route::get('/login', function(){
     return view('login');
 });
-Route::get('foo', 'motos\MotosController@method');
+
+
 
