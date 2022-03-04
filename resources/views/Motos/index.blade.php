@@ -58,6 +58,7 @@
     <div class="col">
         <div class="card" style="width: 18rem;">
         <a href="{{ url('/motos/show/' . $moto->id ) }}">
+
         <img src="{{$moto['poster']}}" style="height:200px"/>
         </a>
         <div class="card-body">

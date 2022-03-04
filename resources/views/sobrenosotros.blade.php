@@ -6,8 +6,7 @@
 
 @section('content')
   <div class="container">
-    <h1>Esta es la pagina de sobre nosotros</h1>
-    <h2>¡Bienvenido!</h2>
+    <h1>Sobre nosotros</h1>
   </div>
 
   <div class="container">

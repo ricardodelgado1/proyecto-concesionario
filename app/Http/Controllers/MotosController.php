@@ -9,7 +9,10 @@ class MotosController extends Controller
 {
     /*
     */
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     //
     public function getIndex()
@@ -50,20 +53,6 @@ class MotosController extends Controller
     {
 
         return view('motos.create');
-
-        /*
-        $moto = new Moto;
-        $moto->nombre='VICTORY ADVANCE R 110';
-        $moto->modelo='2023';
-        $moto->marca='Auteco';
-        $moto->poster='https://auteco.vteximg.com.br/arquivos/ids/209785-300-300/moto_victory_advancer110_negro_azul_2022_foto1.png?v=637684649355000000';
-        //$moto->separada= false;
-        $moto->cilindraje='109 cc';
-        $moto->precio='5199000';
-        $moto->descripcion='Descubre la moped tecnológicamente más avanzada de Auteco Mobility. Conoce el futuro y conduce en las calles con estilo.';
-
-        $moto->save();
-        return view('motos.create', array('moto'=>$moto)); */
 
     }
 
