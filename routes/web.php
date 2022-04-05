@@ -18,14 +18,6 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', 'App\\Http\\Controllers\\HomeController@getHome');
 
 
-/*
-Route::get('/login', function(){
-    return view('login');
-});*/
-
-
-
-
 Auth::routes();
 
 
@@ -37,7 +29,7 @@ Route::get('/sobrenosotros', [App\Http\Controllers\ContactController::class, 'ge
 
 Route::get('/motos', [App\Http\Controllers\MotosController::class, 'getIndex'])->name('motos');
 
-Route::get('/motos/show/{id}', [App\Http\Controllers\MotosController::class, 'getShow//'])->name('motos/show/{id}');
+Route::get('/motos/show/{id}', [App\Http\Controllers\MotosController::class, 'getShow'])->name('motos/show/{id}');
 
 Route::get('/serviciotecnico', [App\Http\Controllers\ServiceController::class, 'getMantenimiento'])->name('serviciotecnico');
 
@@ -52,6 +44,10 @@ Route::get('/repuestos', [App\Http\Controllers\ServiceController::class, 'getRep
 
 Route::get('motos/create', 'App\\Http\\Controllers\\MotosController@getCreate');
 Route::post('motos/create', 'App\\Http\\Controllers\\MotosController@addMoto');
+Route::get('motos/pedido', 'App\\Http\\Controllers\\MotosController@getPedido');
+
+Route::put('motos/reservar/{id}','App\\Http\\Controllers\\MotosController@putReservar');
+Route::put('motos/noreservar/{id}','App\\Http\\Controllers\\MotosController@putNoreservar');
 
  /*   Route::get('motos/edit/{id}', 'App\\Http\\Controllers\\MotosController@getEdit');
  */

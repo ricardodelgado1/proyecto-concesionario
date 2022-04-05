@@ -28,6 +28,7 @@ class HomeController extends Controller
  */
     public function getHome()
     {
+        notify()->success('bienvenido!');
         return view('inicio');
     }
 }

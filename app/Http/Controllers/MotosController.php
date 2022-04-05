@@ -56,10 +56,34 @@ class MotosController extends Controller
 
     }
 
+    public function getPedido()
+    {
+
+        return view('motos.pedido');
+
+    }
+
     public function getEdit($id)
     {
         $moto = Moto::findOrFail($id);
         return view('motos.edit', ['moto' =>$moto,'id' => $id]);
+    }
+
+    public function putReservar(Request $request,$id){
+        $moto = Moto::findOrFail($request->id);
+        $moto->separada=true;
+        $moto->save();
+        notify()->success('Moto Reservada con Exito!!');
+        return redirect()->action([MotosController::class,'getShow'],array('id'=>$id));
+    }
+
+    public function putNoreservar(Request $request,$id){
+        $moto = Moto::findOrFail($request->id);
+        $moto->separada=false;
+        $moto->save();
+        notify()->success('Esta moto ya no esta Reservada!!');
+        //notify()->emotify('success', '¡Pelicula Agregada!');
+        return redirect()->action([MotosController::class,'getShow'],array('id'=>$id));
     }
 
 

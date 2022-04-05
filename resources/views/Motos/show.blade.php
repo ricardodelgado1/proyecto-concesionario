@@ -26,17 +26,42 @@
              {{$moto->separada? 'Moto actualmente separada ' : 'Moto disponible'}}</p>
           <div class="container p-0 mt-5">
 
+            <a href="{{url('/motos/pedido')}}">
+                <button type="button" class="btn btn-success">
+                <i class="fa-regular fa-circle-left"></i>
+                Comprar Moto
+                </button>
+            </a>
+
+
+
             @if ($moto->separada)
-                <button type="button" class="btn btn-danger">No separar moto</button>
+            <form action="/motos/noreservar/{{$moto->id}}" method="POST" style="display:inline">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-danger" style="display:inline">
+                    No Reservar
+                </button>
+            </form>
             @else
-                <button type="button" class="btn btn-success">Comprar Moto</button>
+            <form action="/motos/reservar/{{$moto->id}}" method="POST" style="display:inline">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-warning" style="display:inline">
+                    Reservar
+                </button>
+            </form>
             @endif
+
+
+
                 <!-- <a href="{{url('moto/edit', $id)}}">
                     <button class="btn btn-warning">
                     <i class="fa-solid fa-pencil"></i>
                         Editar Moto
                     </button>
                  </a> -->
+
                  <a href="{{url('/motos')}}">
 
                      <button class="btn btn-secondary">
@@ -51,4 +76,7 @@
 
 
 </div>
+
+
+
 @endsection

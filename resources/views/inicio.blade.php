@@ -44,9 +44,9 @@
 
 <br>
 <div class="container">
-  <div class="row">
-    <div class="col">
-       <div class="card" style="width: 18rem;">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col ">
+       <div class="card" >
         <img src="/img/1.jpg" class="card-img-top" alt="imagen1">
         <div class="card-body">
             <h5 class="card-title">DIO LED STD 2023</h5>
@@ -56,18 +56,19 @@
        </div>
     </div>
     <div class="col">
-      <div class="card" style="width: 18rem;">
+      <div class="card" >
         <img src="/img/2.jpg" class="card-img-top" alt="imagen2">
         <div class="card-body">
             <h5 class="card-title">CBR 1000 SP1 Modelo 2021</h5>
             <p class="card-text">Freno delanteroBREMBO Hidráulico,Horquillas telescópicas invertidas Ölins NIX30 con 120 mm de carrera con control electrónico semi-activo de ajuste de precarga, compresión y extensión Tipo de suspensión trasera
-                      Unidad Pro-link Monoamortiguada  TTX36 semi-activa</p>
+                      Unidad Pro-link.</p>
             <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Ver mas</a>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
+      <div class="card">
         <img src="/img/5.jpg" class="card-img-top" alt="imagen3">
         <div class="card-body">
             <h5 class="card-title">XR 150L 2023</h5>
@@ -81,6 +82,33 @@
 </div>
 
 <br>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        el cuerpo del modal
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 <div class="container">
