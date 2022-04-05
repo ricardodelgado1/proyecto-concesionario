@@ -49,27 +49,28 @@
 <div class="container">
 <h1>Catalogo de motos</h1>
 
-   <div class="row">
+   <div class="row row-cols-1 row-cols-md-3 g-4">
 
    @foreach( $motos as  $moto )
 
 
-
+    <br>
     <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 19rem; ">
         <a href="{{ url('/motos/show/' . $moto->id ) }}">
 
-        <img src="{{$moto['poster']}}" style="height:200px"/>
+        <img src="{{$moto['poster']}}" class="card-img-top"/>
         </a>
         <div class="card-body">
             <h5 class="card-title">{{$moto->nombre}}</h5>
             <p class="card-text">{{$moto->descripcion}}</p>
-            <a href="{{ url('/motos/show/' . $moto->id ) }}" class="btn btn-primary">Comprar</a>
+            <a href="{{ url('/motos/show/' . $moto->id ) }}" class="btn btn-success">Comprar</a>
         </div>
         </div>
     </div>
+    <br> <br>
     @endforeach
-</div>
+ </div>
 
 
 
