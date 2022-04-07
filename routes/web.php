@@ -3,7 +3,7 @@ use App\Http\livewire\Shop\IndexComponent;
 use App\Http\Controllers\MotosController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\MotosController;
+
 use App\Http\Controllers\RepuestosController;
 use App\Http\Controllers\ContactosController;
 use Illuminate\Support\Facades\Auth;

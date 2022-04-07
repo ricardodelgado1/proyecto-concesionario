@@ -47,7 +47,7 @@
                     <ul class="navbar-nav ms-auto">
 
                         <a href="{{url('/motos/carrito')}}" class="btn btn-primary">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fas fa-shopping-cart"></i>
                             @auth
                             {{\Cart::session(auth()->id())->getTotalQuantity()}}
                             @else

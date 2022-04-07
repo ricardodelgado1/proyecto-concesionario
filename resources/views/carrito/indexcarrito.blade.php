@@ -31,7 +31,7 @@
                 <form method="POST" action="{{ url('/motos/carrito/' . $item->id )}}">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button>
                 </form>
 
             </td>
