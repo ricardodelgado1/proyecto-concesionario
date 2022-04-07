@@ -24,7 +24,8 @@
         <div class="card-body">
             <h5 class="card-title">{{$repuesto->nombre}}</h5>
             <p class="card-text">{{$repuesto->descripcion}}</p>
-            <a href="{{ url('/repuestos/show/' . $repuesto->id ) }}" class="btn btn-success">Comprar</a>
+            <a href="{{ url('/repuestos/show/' . $repuesto->id ) }}" class="btn btn-success btn-sm">
+            <span class="fas fa-plus"></span> Ver mas</a>
         </div>
         </div>
     </div>

@@ -31,8 +31,12 @@
                 <form method="POST" action="{{ url('/motos/carrito/' . $item->id )}}">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button>
+                    <button type="submit" class="btn btn-danger btn-sm" style="display:inline"
+                    onclick="return confirm('¿Esta seguro de eliminar esta película?')">
+                    <i class="fas fa-trash"></i>   Eliminar
+                 </button>
                 </form>
+
 
             </td>
             </tr>
@@ -42,6 +46,9 @@
 
     <h3>Total: $ {{\Cart::session(auth()->id())->getTotal()}}</h3>
 
-    <a  href="{{ url('motos/carrito/factura') }}" class="btn btn-primary">Facturar</a>
+    <a  href="{{ url('motos/carrito/factura') }}" class="btn btn-primary">
+    <!-- <i class="fa-solid fa-clipboard-list-check"></i> -->
+    <span class="fas fa-receipt"></span>
+    Facturar</a>
 
     @endsection

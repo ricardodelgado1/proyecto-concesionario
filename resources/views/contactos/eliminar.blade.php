@@ -42,6 +42,7 @@ Eliminar Contacto
                                 <span class="fas fa-user-times"></span>Eliminar</button>
 
                             </form>
+                            
                         </div>
                     </div>
                 </div>
