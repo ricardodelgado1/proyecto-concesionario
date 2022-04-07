@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MotosController;
+use App\Http\Controllers\RepuestosController;
+use App\Http\Controllers\ContactosController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +28,12 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome'])->name('inicio');
 
-Route::get('/contacto', [App\Http\Controllers\ContactController::class, 'getContact'])->name('contacto');
+//Route::get('/contacto', [App\Http\Controllers\ContactController::class, 'getContact'])->name('contacto');
 
-Route::get('/sobrenosotros', [App\Http\Controllers\ContactController::class, 'getContact'])->name('sobrenosotros');
+
+
+
+Route::get('/sobrenosotros', [App\Http\Controllers\ContactController::class, 'getNosotros'])->name('sobrenosotros');
 
 Route::get('/motos', [App\Http\Controllers\MotosController::class, 'getIndex'])->name('motos');
 
@@ -33,7 +41,8 @@ Route::get('/motos/show/{id}', [App\Http\Controllers\MotosController::class, 'ge
 
 Route::get('/serviciotecnico', [App\Http\Controllers\ServiceController::class, 'getMantenimiento'])->name('serviciotecnico');
 
-Route::get('/repuestos', [App\Http\Controllers\ServiceController::class, 'getRepuesto'])->name('repuestos');
+Route::get('/repuestos', [App\Http\Controllers\RepuestosController::class, 'getIndex'])->name('repuestos');
+Route::get('/repuestos/show/{id}', [App\Http\Controllers\RepuestosController::class, 'getShow'])->name('repuestos/show/{id}');
 
 
 //Route::get('/contacto', 'App\\Http\\Controllers\\ContactController@getContact');
@@ -45,18 +54,27 @@ Route::get('/repuestos', [App\Http\Controllers\ServiceController::class, 'getRep
 Route::get('motos/create', 'App\\Http\\Controllers\\MotosController@getCreate');
 Route::post('motos/create', 'App\\Http\\Controllers\\MotosController@addMoto');
 Route::get('motos/pedido', 'App\\Http\\Controllers\\MotosController@getPedido');
-
 Route::put('motos/reservar/{id}','App\\Http\\Controllers\\MotosController@putReservar');
 Route::put('motos/noreservar/{id}','App\\Http\\Controllers\\MotosController@putNoreservar');
 
+Route::get('repuestos/pedido', 'App\\Http\\Controllers\\RepuestosController@getPedido');
+Route::put('repuestos/reservar/{id}','App\\Http\\Controllers\\RepuestosController@putReservar');
+Route::put('repuestos/noreservar/{id}','App\\Http\\Controllers\\RepuestosController@putNoreservar');
+
+Route::prefix('contactos')->group(function(){
+    Route::get('/', [App\Http\Controllers\ContactosController::class, 'index'])->name('contactos.index');
+    Route::get('/agregar', [App\Http\Controllers\ContactosController::class, 'create'])->name('contactos.create');
+    Route::get('/editar/{id}', [App\Http\Controllers\ContactosController::class, 'edit'])->name('contactos.edit');
+    Route::get('/eliminar/{id}', [App\Http\Controllers\ContactosController::class, 'show'])->name('contactos.show');
+    Route::post('/guardar', [App\Http\Controllers\ContactosController::class, 'store'])->name('contactos.store');
+    Route::put('/actualizar/{id}', [App\Http\Controllers\ContactosController::class, 'update'])->name('contactos.update');
+    Route::delete('/destruir/{id}', [App\Http\Controllers\ContactosController::class, 'destroy'])->name('contactos.destroy');
+});
  /*   Route::get('motos/edit/{id}', 'App\\Http\\Controllers\\MotosController@getEdit');
  */
 
 
 //Route::get('/serviciotecnico', 'App\\Http\\Controllers\\ServiceController@getMantenimiento');
-
-//Route::get('/repuestos', 'App\\Http\\Controllers\\ServiceController@getRepuesto');
-
 
 
 

@@ -1,7 +1,7 @@
 @extends('inicio')
 
 @section('title')
-    Motos
+    Repuestos
 @endsection
 
 @section('content')
@@ -9,34 +9,35 @@
 <div class="container">
 <div class="row">
      <div class="col-sm-4">
-        {{-- TODO: Imagen de la Moto --}}
-        <img src="{{ $moto['poster']}}"/>
+        {{-- TODO: Imagen del repuesto --}}
+        <img src="{{ $repuesto['poster']}}"/>
      </div>
      <div class="col-sm-8">
-          {{-- TODO: Datos de la Moto --}}
-          <h2 class="text-start mt-3">{{ $moto->nombre}}</h2>
-          <p class="text-start fs-5"><b>Modelo:</b> {{$moto->modelo}}
+          {{-- TODO: Datos del Repuesto --}}
+          <h2 class="text-start mt-3">{{ $repuesto->nombre}}</h2>
+          <p class="text-start fs-5"><b>Marca:</b> {{$repuesto->marca}}
               <br>
-              <b>Marca:</b> {{$moto->marca}}
+              <b>Modelo:</b> {{$repuesto->modelo}}
+
           </p>
-          <p class="lh-sm fs-5"><b>Descripcion:</b>{{ $moto->descripcion}}</p>
-          <p class="lh-sm fs-5"><b>Precio:</b>{{ $moto->precio}}</p>
+          <p class="lh-sm fs-5"><b>Descripcion:</b>{{ $repuesto->descripcion}}</p>
+          <p class="lh-sm fs-5"><b>Precio:</b>{{ $repuesto->precio}}</p>
 
           <p class="lh-sm fs-5"><b>Estado:</b>
-             {{$moto->separada? 'Moto actualmente separada ' : 'Moto disponible'}}</p>
+             {{$repuesto->separado? 'Repuesto separado ' : 'Repuesto disponible'}}</p>
           <div class="container p-0 mt-5">
 
-            <a href="{{url('/motos/pedido')}}">
+            <a href="{{url('/repuestos/pedido')}}">
                 <button type="button" class="btn btn-success">
                 <i class="fa-regular fa-circle-left"></i>
-                Comprar Moto
+                Comprar Repuesto
                 </button>
             </a>
 
 
 
-            @if ($moto->separada)
-            <form action="/motos/noreservar/{{$moto->id}}" method="POST" style="display:inline">
+            @if ($repuesto->separado)
+            <form action="/repuestos/noreservar/{{$repuesto->id}}" method="POST" style="display:inline">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-danger" style="display:inline">
@@ -44,7 +45,7 @@
                 </button>
             </form>
             @else
-            <form action="/motos/reservar/{{$moto->id}}" method="POST" style="display:inline">
+            <form action="/repuestos/reservar/{{$repuesto->id}}" method="POST" style="display:inline">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-warning" style="display:inline">
@@ -62,7 +63,7 @@
                     </button>
                  </a> -->
 
-                 <a href="{{url('/motos')}}">
+                 <a href="{{url('/repuestos')}}">
 
                      <button class="btn btn-secondary">
                      <i class="fa-regular fa-circle-left"></i>
@@ -73,10 +74,6 @@
      </div>
 </div>
 
-
-
 </div>
-
-
 
 @endsection

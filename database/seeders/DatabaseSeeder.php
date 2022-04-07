@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\Moto;
+use App\Models\Repuesto;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,59 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    private  $arrayRepuestos = array(
+		array(
+			'nombre' => 'Bateria',
+			'modelo' => '2023',
+			'marca' => 'Yuasa',
+			'poster' => 'http://automociontotal.hiperarticulos.com/wp-content/uploads/2016/12/bater%C3%ADas-para-moto-1.jpg',
+			'separada' => false,
+            'precio' => '280000',
+			'descripcion' => 'Batería Yuasa YTZ10S.Se trata de una batería que crea un ajuste perfecto, por lo que debe ser fácil de instalar y reemplazar'
+		),array(
+			'nombre' => 'Chasis',
+			'modelo' => '2022',
+			'marca' => 'Rizoma',
+			'poster' => 'https://publimotos.com/images/2018/Noviembre/chasis/chasis-cabecera.jpg',
+			'separada' => false,
+            'precio' => '450000',
+			'descripcion' => 'Chasis simple de cuna cerrado.El chasis simple de cuna cerrado por lo general se encuentra compuesto por tubos de acero con diámetros variables, tiene forma de trapecio.'
+		),array(
+			'nombre' => 'Asiento',
+			'modelo' => '2022',
+			'marca' => 'Universal',
+			'poster' => 'https://tienda-fisioterapia.com/Media/tiendafisioterapia/_Profiles/c44d3c72/bcfb455c/asiento%20moto%20deportiva.jpg?v=637528105143799127',
+			'separada' => false,
+            'precio' => '90000',
+			'descripcion' => 'Asiento moto deportiva, Disfrutá del camino, del resto.. nos encargamos nosotros.Las medidas son 60 cm de largo X 26 de ancho Esperamos tu oferta. Es generico para adaptar'
+		) ,array(
+			'nombre' => 'Embrague',
+			'modelo' => '2023',
+			'marca' => 'Honda',
+			'poster' => 'https://media.istockphoto.com/photos/motorcycle-clutch-with-gears-picture-id521976870',
+			'separada' => false,
+            'precio' => '99000',
+			'descripcion' => 'centro de embrague y plato presion de embrague original aplica para xr 125l brio (motor de cadenilla) mejora el rendimiento de tu motocicleta'
+        ),array(
+			'nombre' => 'Farola',
+			'modelo' => '2023',
+			'marca' => 'Yamaha',
+			'poster' => 'https://tienda-yamaha.com.co/2172/farola-completa-yamaha-ybr-125-e.jpg',
+			'separada' => false,
+            'precio' => ' 258200',
+			'descripcion' => 'Farola Completa Yamaha YBR 125 E Te ofrece diseño, calidad y excelentes precio'
+		),array(
+			'nombre' => 'llantas',
+			'modelo' => '2022',
+			'marca' => 'Pirelli',
+			'poster' => 'https://flamingo.vteximg.com.br/arquivos/ids/352816-770-770/image-7bbb2be026414221aa9e6d4e5b008081.jpg?v=637624913561200000',
+			'separada' => false,
+            'precio' => '166000',
+			'descripcion' => 'Llanta para moto Angel Scooter 90/90/10Alto confort gracias a la acción combinada de la carcasa rígida y el diseño de la banda de rodamiento. Nuevo compuesto con un alto porcentaje de sílice para unas altas prestaciones en húmedo.'
+		)
+
+    );
 
     private $arrayMotos = array(
 		array(
@@ -72,15 +126,16 @@ class DatabaseSeeder extends Seeder
 
     );
 
-
-
-
     public function run()
     {
         // \App\Models\User::factory(10)->create();
         self::seedMoto();
+        self::seedRepuesto();
+
 
         $this->command->info('Tabla Motos inicializada con datos');
+        $this->command->info('Tabla Repuestos inicializada con datos');
+
     }
 
     private function seedMoto()
@@ -101,6 +156,26 @@ class DatabaseSeeder extends Seeder
             $moto->descripcion = $motos['descripcion'];
 
             $moto->save();
+
+        }
+
+    }
+    private function seedRepuesto()
+    {
+
+        DB::table('repuestos')->delete();
+
+        foreach ( $this->arrayRepuestos as $repuestos) {
+            # code..
+            $repuesto = new Repuesto;
+            $repuesto->nombre = $repuestos['nombre'];
+            $repuesto->modelo = $repuestos['modelo'];
+            $repuesto->marca = $repuestos['marca'];
+            $repuesto->poster = $repuestos['poster'];
+            $repuesto->precio = $repuestos['precio'];
+            $repuesto->descripcion = $repuestos['descripcion'];
+
+            $repuesto->save();
 
         }
 
