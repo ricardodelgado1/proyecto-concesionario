@@ -50,12 +50,6 @@ Route::get('/repuestos', [App\Http\Controllers\RepuestosController::class, 'getI
 Route::get('/repuestos/show/{id}', [App\Http\Controllers\RepuestosController::class, 'getShow'])->name('repuestos/show/{id}');
 
 
-//Route::get('/contacto', 'App\\Http\\Controllers\\ContactController@getContact');
-//Route::get('/sobrenosotros', 'App\\Http\\Controllers\\ContactController@getNosotros');
-//Route::get('/motos', 'App\\Http\\Controllers\\MotosController@getIndex');
-
-//Route::get('motos/show/{id}', 'App\\Http\\Controllers\\MotosController@getShow');
-
 Route::get('motos/create', 'App\\Http\\Controllers\\MotosController@getCreate');
 Route::post('motos/create', 'App\\Http\\Controllers\\MotosController@addMoto');
 
