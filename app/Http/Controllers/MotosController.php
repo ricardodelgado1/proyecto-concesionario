@@ -110,7 +110,7 @@ class MotosController extends Controller
         $cart_items2= \Cart::session(auth()->id())->getContent();
         
 
-        notify()->success('liminado del carrito!!');
+        notify()->success('Eliminado del carrito!!');
 
         return view('carrito.indexcarrito', ['cart_items' => $cart_items2]);
     }
