@@ -32,7 +32,7 @@
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm" style="display:inline"
-                    onclick="return confirm('¿Esta seguro de eliminar esta película?')">
+                    onclick="return confirm('¿Esta seguro de eliminar este registro?')">
                     <i class="fas fa-trash"></i>   Eliminar
                  </button>
                 </form>
