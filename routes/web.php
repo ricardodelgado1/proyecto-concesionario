@@ -69,9 +69,9 @@ Route::get('motos/carrito/factura', 'MotosController@factura');
 Route::put('motos/reservar/{id}','MotosController@putReservar');
 Route::put('motos/noreservar/{id}','MotosController@putNoreservar');
 
-Route::get('repuestos/pedido', 'App\\Http\\Controllers\\RepuestosController@getPedido');
-Route::put('repuestos/reservar/{id}','App\\Http\\Controllers\\RepuestosController@putReservar');
-Route::put('repuestos/noreservar/{id}','App\\Http\\Controllers\\RepuestosController@putNoreservar');
+Route::get('repuestos/pedido', 'RepuestosController@getPedido');
+Route::put('repuestos/reservar/{id}','RepuestosController@putReservar');
+Route::put('repuestos/noreservar/{id}','RepuestosController@putNoreservar');
 
 Route::prefix('contactos')->group(function(){
     Route::get('/', [App\Http\Controllers\ContactosController::class, 'index'])->name('contactos.index');

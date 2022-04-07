@@ -30,7 +30,7 @@
             <a href="{{url('/repuestos/pedido')}}">
                 <button type="button" class="btn btn-success">
                 <i class="fa-regular fa-circle-left"></i>
-                Comprar Repuesto
+                <span class="fas fa-cart-plus"></span> Agregar al Carrito
                 </button>
             </a>
 
@@ -41,7 +41,7 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-danger" style="display:inline">
-                    No Reservar
+                <span class="fas fa-minus"></span>  No Reservar
                 </button>
             </form>
             @else
@@ -49,6 +49,7 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-warning" style="display:inline">
+                <span class="fas fa-plus"></span>
                     Reservar
                 </button>
             </form>
@@ -67,6 +68,7 @@
 
                      <button class="btn btn-secondary">
                      <i class="fa-regular fa-circle-left"></i>
+                     <span class="fas fa-address-book"></span>
                          Volver listado
                     </button>
                  </a>

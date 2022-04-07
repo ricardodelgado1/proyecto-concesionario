@@ -31,6 +31,8 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-success" style="display:inline">
+                <span class="fas fa-cart-plus"></span>
+
                 Agregar al carrito
                 </button>
             </form>
@@ -41,6 +43,7 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-danger" style="display:inline">
+                <span class="fas fa-minus"></span>
                     No Reservar
                 </button>
             </form>
@@ -49,7 +52,8 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-warning" style="display:inline">
-                    Reservar
+                <span class="fas fa-plus"></span>Reservar
+                <!-- fa-person-walking-arrow-loop-left -->
                 </button>
             </form>
             @endif
@@ -67,6 +71,8 @@
 
                      <button class="btn btn-secondary">
                      <i class="fa-regular fa-circle-left"></i>
+                     <span class="fas fa-address-book"></span>
+
                          Volver listado
                     </button>
                  </a>

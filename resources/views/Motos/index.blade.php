@@ -64,7 +64,8 @@
         <div class="card-body">
             <h5 class="card-title">{{$moto->nombre}}</h5>
             <p class="card-text">{{$moto->descripcion}}</p>
-            <a href="{{ url('/motos/show/' . $moto->id ) }}" class="btn btn-success">Ver mas</a>
+            <a href="{{ url('/motos/show/' . $moto->id ) }}" class="btn btn-success btn-sm">
+            <span class="fas fa-plus"></span> Ver mas</a>
         </div>
         </div>
     </div>
