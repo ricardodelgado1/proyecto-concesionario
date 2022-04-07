@@ -85,4 +85,57 @@ class RepuestosController extends Controller
         return redirect()->action([RepuestosController::class,'getShow'],array('id'=>$id));
     }
 
+       //EVENTOS DEL CARRITO
+
+
+       public function index_cart()
+       {
+           $cart_items= \Cart::session(auth()->id())->getContent();
+           return view('carrito.indexcarrito', ['cart_items' => $cart_items]);
+       }
+
+       public function update_quantity($id)
+       {
+           $cart_items= \Cart::session(auth()->id())->update($id,['quantity' => 1]);
+           return view('carrito.indexcarrito', ['cart_items' => $cart_items]);
+       }
+
+       public function delete_cart($cart)
+       {
+           $cart_items= \Cart::session(auth()->id())->remove($cart);
+           $cart_items2= \Cart::session(auth()->id())->getContent();
+
+           notify()->success('Eliminado del carrito!!');
+
+           return view('carrito.indexcarrito', ['cart_items' => $cart_items2]);
+       }
+
+       public function add_to_cart($id)
+       {
+           $repuesto = Repuesto::findOrFail($id);
+
+           \Cart::session(auth()->id())->add(array(
+               'id' => $repuesto->id,
+               'name' => $repuesto->nombre,
+               'price' => $repuesto->precio,
+               'quantity' => 1,
+               'attributes' => array(),
+               'associatedModel' => $repuesto
+           ));
+           notify()->success('Repuesto Agregado al carrito!!');
+           return redirect()->action([RepuestosController::class,'getShow'],array('id'=>$id));
+       }
+
+
+
+
+
+       public function factura(){
+
+           $cart_items= \Cart::session(auth()->id())->getContent();
+
+           $pdf = PDF::loadview('factura',['cart_items'=>$cart_items]);
+           return $pdf->stream();
+       }
+
 }

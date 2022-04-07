@@ -69,6 +69,12 @@ Route::get('motos/carrito/factura', 'MotosController@factura');
 Route::put('motos/reservar/{id}','MotosController@putReservar');
 Route::put('motos/noreservar/{id}','MotosController@putNoreservar');
 
+//agrga repuestos al carrito
+Route::put('repuestos/carrito/{id}', 'RepuestosController@add_to_cart');
+Route::get('repuestos/carrito', 'RepuestosController@index_cart');
+Route::delete('repuestos/carrito/{id}', 'RepuestosController@delete_cart');
+Route::put('repuestos/carrito', 'RepuestosController@update_quantity');
+
 Route::get('repuestos/pedido', 'RepuestosController@getPedido');
 Route::put('repuestos/reservar/{id}','RepuestosController@putReservar');
 Route::put('repuestos/noreservar/{id}','RepuestosController@putNoreservar');

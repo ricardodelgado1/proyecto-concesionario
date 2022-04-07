@@ -24,7 +24,7 @@ class MotosController extends Controller
         $motos = Moto::all();
         return view('motos.index', ['motos' => $motos]);
 
-        
+
 
     }
 
@@ -108,8 +108,9 @@ class MotosController extends Controller
     {
         $cart_items= \Cart::session(auth()->id())->remove($cart);
         $cart_items2= \Cart::session(auth()->id())->getContent();
+        
 
-        notify()->success('Moto Eliminada del carrito!!');
+        notify()->success('liminado del carrito!!');
 
         return view('carrito.indexcarrito', ['cart_items' => $cart_items2]);
     }
