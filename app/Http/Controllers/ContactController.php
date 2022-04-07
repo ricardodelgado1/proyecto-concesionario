@@ -12,10 +12,7 @@ class ContactController extends Controller
         $this->middleware('auth');
     }
     //
-    public function getContact()
-    {
-        return view('contacto');
-    }
+    
     public function getNosotros()
     {
         return view('sobrenosotros');

@@ -24,6 +24,8 @@ class MotosController extends Controller
         $motos = Moto::all();
         return view('motos.index', ['motos' => $motos]);
 
+        
+
     }
 
 
