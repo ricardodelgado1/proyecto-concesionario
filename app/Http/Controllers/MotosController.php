@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Moto;
+use PDF;
 
 class MotosController extends Controller
 {
@@ -84,6 +85,59 @@ class MotosController extends Controller
         notify()->success('Esta moto ya no esta Reservada!!');
         //notify()->emotify('success', '¡Pelicula Agregada!');
         return redirect()->action([MotosController::class,'getShow'],array('id'=>$id));
+    }
+
+    //EVENTOS DEL CARRITO
+
+
+    public function index_cart()
+    {
+        $cart_items= \Cart::session(auth()->id())->getContent();
+        return view('carrito.indexcarrito', ['cart_items' => $cart_items]);
+    }
+
+    public function update_quantity($id)
+    {
+        $cart_items= \Cart::session(auth()->id())->update($id,['quantity' => 1]);
+        return view('carrito.indexcarrito', ['cart_items' => $cart_items]);
+    }
+
+    public function delete_cart($cart)
+    {
+        $cart_items= \Cart::session(auth()->id())->remove($cart);
+        $cart_items2= \Cart::session(auth()->id())->getContent();
+
+        notify()->success('Moto Eliminada del carrito!!');
+
+        return view('carrito.indexcarrito', ['cart_items' => $cart_items2]);
+    }
+
+    public function add_to_cart($id)
+    {
+        $moto = Moto::findOrFail($id);
+
+        \Cart::session(auth()->id())->add(array(
+            'id' => $moto->id,
+            'name' => $moto->nombre,
+            'price' => $moto->precio,
+            'quantity' => 1,
+            'attributes' => array(),
+            'associatedModel' => $moto
+        ));
+        notify()->success('Moto Agregada al carrito!!');
+        return redirect()->action([MotosController::class,'getShow'],array('id'=>$id));
+    }
+
+
+
+
+
+    public function factura(){
+        $motos = Moto::all();
+        $cart_items= \Cart::session(auth()->id())->getContent();
+
+        $pdf = PDF::loadview('factura',['cart_items'=>$cart_items]);
+        return $pdf->stream();
     }
 
 

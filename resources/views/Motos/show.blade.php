@@ -26,13 +26,14 @@
              {{$moto->separada? 'Moto actualmente separada ' : 'Moto disponible'}}</p>
           <div class="container p-0 mt-5">
 
-            <a href="{{url('/motos/pedido')}}">
-                <button type="button" class="btn btn-success">
-                <i class="fa-regular fa-circle-left"></i>
-                Comprar Moto
-                </button>
-            </a>
 
+            <form action="/motos/carrito/{{$moto->id}}" method="POST" style="display:inline">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-success" style="display:inline">
+                Agregar al carrito
+                </button>
+            </form>
 
 
             @if ($moto->separada)

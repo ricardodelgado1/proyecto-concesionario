@@ -51,7 +51,7 @@
         <div class="card-body">
             <h5 class="card-title">DIO LED STD 2023</h5>
             <p class="card-text">Nueva luz LED de farola y de posición que ofrece mayor seguridad y mejor diseño, Gracias a su sistema CBS (sistema de frenos combinado) distribuye el frenado de manera equilibrada para mayor seguridad en el camino,podrás cargar tu celular mientras llegas a tu destino</p>
-            <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Ver mas</a>
+            <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Conocer mas</a>
         </div>
        </div>
     </div>
@@ -62,7 +62,7 @@
             <h5 class="card-title">CBR 1000 SP1 Modelo 2021</h5>
             <p class="card-text">Freno delanteroBREMBO Hidráulico,Horquillas telescópicas invertidas Ölins NIX30 con 120 mm de carrera con control electrónico semi-activo de ajuste de precarga, compresión y extensión Tipo de suspensión trasera
                       Unidad Pro-link.</p>
-            <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Ver mas</a>
+            <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Conocer mas</a>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
             <h5 class="card-title">XR 150L 2023</h5>
             <p class="card-text">a XR150L se destaca por su diseño deportivo y el reconocimiento del ADN de la familia Enduro de Honda.
             incorpora elementos que le permiten resistir todos terrenos y reaccionar ante cualquier necesidad gracias a su potente motor.</p>
-            <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Ver mas</a>
+            <a href="{{ url('/motos' ) }}" class="btn btn-primary stretched-link">Conocer mas</a>
         </div>
        </div>
     </div>

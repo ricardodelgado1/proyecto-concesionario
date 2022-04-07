@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\livewire\Shop\IndexComponent;
+use App\Http\Controllers\MotosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+
+Route::get('/carro', [App\Http\livewire\Shop\IndexComponent::class, 'index']);
+
+
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome'])->name('inicio');
@@ -44,10 +49,16 @@ Route::get('/repuestos', [App\Http\Controllers\ServiceController::class, 'getRep
 
 Route::get('motos/create', 'App\\Http\\Controllers\\MotosController@getCreate');
 Route::post('motos/create', 'App\\Http\\Controllers\\MotosController@addMoto');
-Route::get('motos/pedido', 'App\\Http\\Controllers\\MotosController@getPedido');
 
-Route::put('motos/reservar/{id}','App\\Http\\Controllers\\MotosController@putReservar');
-Route::put('motos/noreservar/{id}','App\\Http\\Controllers\\MotosController@putNoreservar');
+Route::get('motos/pedido', 'MotosController@getPedido');
+Route::put('motos/carrito/{id}', 'MotosController@add_to_cart');
+Route::get('motos/carrito', 'MotosController@index_cart');
+Route::delete('motos/carrito/{id}', 'MotosController@delete_cart');
+Route::put('motos/carrito', 'MotosController@update_quantity');
+Route::get('motos/carrito/factura', 'MotosController@factura');
+
+Route::put('motos/reservar/{id}','MotosController@putReservar');
+Route::put('motos/noreservar/{id}','MotosController@putNoreservar');
 
  /*   Route::get('motos/edit/{id}', 'App\\Http\\Controllers\\MotosController@getEdit');
  */
