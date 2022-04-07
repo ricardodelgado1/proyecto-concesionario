@@ -26,17 +26,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/carro', [App\Http\livewire\Shop\IndexComponent::class, 'index']);
-
-
-
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome'])->name('inicio');
-
-//Route::get('/contacto', [App\Http\Controllers\ContactController::class, 'getContact'])->name('contacto');
-
-
-
 
 Route::get('/sobrenosotros', [App\Http\Controllers\ContactController::class, 'getNosotros'])->name('sobrenosotros');
 
@@ -54,6 +45,7 @@ Route::get('motos/create', 'App\\Http\\Controllers\\MotosController@getCreate');
 Route::post('motos/create', 'App\\Http\\Controllers\\MotosController@addMoto');
 
 //Route::get('motos/pedido', 'MotosController@getPedido');
+//agrega motos al carrito
 Route::put('motos/carrito/{id}', 'MotosController@add_to_cart');
 Route::get('motos/carrito', 'MotosController@index_cart');
 Route::delete('motos/carrito/{id}', 'MotosController@delete_cart');
@@ -63,7 +55,7 @@ Route::get('motos/carrito/factura', 'MotosController@factura');
 Route::put('motos/reservar/{id}','MotosController@putReservar');
 Route::put('motos/noreservar/{id}','MotosController@putNoreservar');
 
-//agrga repuestos al carrito
+//agrega repuestos al carrito
 Route::put('repuestos/carrito/{id}', 'RepuestosController@add_to_cart');
 Route::get('repuestos/carrito', 'RepuestosController@index_cart');
 Route::delete('repuestos/carrito/{id}', 'RepuestosController@delete_cart');
@@ -82,12 +74,6 @@ Route::prefix('contactos')->group(function(){
     Route::put('/actualizar/{id}', [App\Http\Controllers\ContactosController::class, 'update'])->name('contactos.update');
     Route::delete('/destruir/{id}', [App\Http\Controllers\ContactosController::class, 'destroy'])->name('contactos.destroy');
 });
- /*   Route::get('motos/edit/{id}', 'App\\Http\\Controllers\\MotosController@getEdit');
- */
-
-
-//Route::get('/serviciotecnico', 'App\\Http\\Controllers\\ServiceController@getMantenimiento');
-
 
 
 
