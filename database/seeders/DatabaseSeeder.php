@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
 			'nombre' => 'KAWASAKI Z900 RS',
 			'modelo' => '2022',
 			'marca' => 'Auteco',
-			'poster' => 'https://auteco.vteximg.com.br/arquivos/ids/211464-300-300/Z900RS-MY22_Fotos-eCommerce360_1.jpg?v=637734400970700000',
+			'poster' => 'https://auteco.vteximg.com.br/arquivos/ids/213251-1000-1000/0_Kawasaki_Z900RS_azul_MY22.png?v=637812766863370000',
 			'separada' => false,
             'cilindraje' => '948 cc',
             'precio' => '64990000',

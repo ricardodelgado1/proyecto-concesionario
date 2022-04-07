@@ -27,12 +27,15 @@
              {{$repuesto->separado? 'Repuesto separado ' : 'Repuesto disponible'}}</p>
           <div class="container p-0 mt-5">
 
-            <a href="{{url('/repuestos/pedido')}}">
-                <button type="button" class="btn btn-success">
-                <i class="fa-regular fa-circle-left"></i>
-                Comprar Repuesto
+
+            <form action="/repuestos/carrito/{{$repuesto->id}}" method="POST" style="display:inline">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-success" style="display:inline">
+                Agregar al carrito
                 </button>
-            </a>
+            </form>
+
 
 
 
