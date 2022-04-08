@@ -93,20 +93,20 @@ tfoot { display:table-footer-group }
             @foreach ($cart_items as $item)
             <tr>
                 <td>{{$item->name}}</td>
-                <td>{{\Cart::session(auth()->id())->get($item->id)->price}}</td>
+                <td>{{\number_format(Cart::session(auth()->id())->get($item->id)->price)}}</td>
                 <td>
                  {{\Cart::session(auth()->id())->get($item->id)->quantity}}
                 </td>
-                <td>{{\Cart::session(auth()->id())->get($item->id)->getPricesum()}}</td>
+                <td>{{\number_format(Cart::session(auth()->id())->get($item->id)->getPricesum())}}</td>
 
             </tr>
             @endforeach
         </tbody>
     </table>
     <hr>
-    <h4>Subtotal: $ {{\Cart::session(auth()->id())->getTotal()}}</h4>
-    <h4>Iva(19%): $ {{\Cart::session(auth()->id())->getTotal()*0.19}}</h4>
-    <h4>Total: $ {{\Cart::session(auth()->id())->getTotal()+(\Cart::session(auth()->id())->getTotal()*0.19)}}</h4>
+    <h4>Subtotal: $ {{\number_format(Cart::session(auth()->id())->getTotal())}}</h4>
+    <h4>Iva(19%): $ {{\number_format(Cart::session(auth()->id())->getTotal()*0.19)}}</h4>
+    <h4>Total: $ {{\number_format(Cart::session(auth()->id())->getTotal()+(\Cart::session(auth()->id())->getTotal()*0.19))}}</h4>
     </div>
     </main>
 

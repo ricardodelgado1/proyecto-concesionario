@@ -37,6 +37,9 @@ Route::get('/motos/show/{id}', [App\Http\Controllers\MotosController::class, 'ge
 
 Route::get('/serviciotecnico', [App\Http\Controllers\ServiceController::class, 'getMantenimiento'])->name('serviciotecnico');
 
+Route::get('/pqrs', [App\Http\Controllers\ServiceController::class, 'getPqrs'])->name('pqrs');
+
+
 Route::get('/repuestos', [App\Http\Controllers\RepuestosController::class, 'getIndex'])->name('repuestos');
 Route::get('/repuestos/show/{id}', [App\Http\Controllers\RepuestosController::class, 'getShow'])->name('repuestos/show/{id}');
 

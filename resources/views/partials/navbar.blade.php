@@ -26,7 +26,7 @@
             <li><a class="dropdown-item" href="{{ url('/repuestos') }}">Repuestos</a></li>
             <li><a class="dropdown-item" href="{{ url('/serviciotecnico') }}">Mantenimientos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">PQRS</a></li>
+            <li><a class="dropdown-item" href="{{ url('/pqrs') }}">PQRS</a></li>
           </ul>
         </li>
         <li class="nav-item">

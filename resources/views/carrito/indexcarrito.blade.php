@@ -1,7 +1,7 @@
 @extends('inicio')
 
 @section('title')
-    Motos
+    Carrito
 @endsection
 @section('content')
 
@@ -22,11 +22,11 @@
             @foreach ($cart_items as $item)
             <tr>
                 <td>{{$item->name}}</td>
-                <td>{{\Cart::session(auth()->id())->get($item->id)->price}}</td>
+                <td>{{\number_format(Cart::session(auth()->id())->get($item->id)->price)}}</td>
                 <td>
                  {{\Cart::session(auth()->id())->get($item->id)->quantity}}
                 </td>
-                <td>{{\Cart::session(auth()->id())->get($item->id)->getPricesum()}}</td>
+                <td>{{\number_format(Cart::session(auth()->id())->get($item->id)->getPricesum())}}</td>
                 <td>
                 <form method="POST" action="{{ url('/motos/carrito/' . $item->id )}}">
                     @method('DELETE')
@@ -44,7 +44,7 @@
         </tbody>
     </table>
 
-    <h3>Total: $ {{\Cart::session(auth()->id())->getTotal()}}</h3>
+    <h3>Total: $ {{\number_format(Cart::session(auth()->id())->getTotal())}}</h3>
 
     <a  href="{{ url('motos/carrito/factura') }}" class="btn btn-primary">
     <!-- <i class="fa-solid fa-clipboard-list-check"></i> -->
