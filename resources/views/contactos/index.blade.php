@@ -5,9 +5,10 @@ Contactos
 @endsection
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="container">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -26,6 +27,7 @@ Contactos
 
                         </div>
                     </div>
+
                     <div class="row text-center">
                         <div class="col-sm-12">
                             <table class="table table-sm table-bordered">
@@ -61,7 +63,7 @@ Contactos
                 </div>
             </div>
         </div>
+
     </div>
 </div>
-
 @endsection
