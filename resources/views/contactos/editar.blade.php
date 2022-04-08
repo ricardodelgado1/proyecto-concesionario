@@ -1,11 +1,11 @@
 @extends('inicio')
 
 @section('title')
-   Editar Contacto
+Editar Contacto
 @endsection
 @section('content')
 
-
+<div class="container">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -21,20 +21,16 @@
                                 @csrf
                                 @method('PUT')
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre"
-                                required value="{{$contactos->nombre}}">
+                                <input type="text" class="form-control" id="nombre" name="nombre" required value="{{$contactos->nombre}}">
                                 <label for="apellido">Apellido</label>
-                                <input type="text" class="form-control" id="apellido" name="apellido"
-                                required value="{{$contactos->apellido}}">
+                                <input type="text" class="form-control" id="apellido" name="apellido" required value="{{$contactos->apellido}}">
                                 <label for="telefono">Teléfono</label>
-                                <input type="text" class="form-control" id="telefono" name="telefono"
-                                required value="{{$contactos->telefono}}">
+                                <input type="text" class="form-control" id="telefono" name="telefono" required value="{{$contactos->telefono}}">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" name="email"
-                                 required value="{{$contactos->email}}">
-                                 <br>
-                                 <button class="btn btn-warning">
-                                 <span class="fas fa-edit"></span>actualizar</button>
+                                <input type="text" class="form-control" id="email" name="email" required value="{{$contactos->email}}">
+                                <br>
+                                <button class="btn btn-warning">
+                                    <span class="fas fa-edit"></span>actualizar</button>
                             </form>
                         </div>
                     </div>
@@ -42,4 +38,6 @@
             </div>
         </div>
     </div>
+</div>
+
 @endsection

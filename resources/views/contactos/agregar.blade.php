@@ -1,11 +1,11 @@
 @extends('inicio')
 
 @section('title')
-   Agregar Contacto
+Agregar Contacto
 @endsection
 @section('content')
 
-
+<div class="container">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
@@ -28,9 +28,9 @@
                                 <input type="tel" class="form-control" id="telefono" name="telefono" required>
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
-                                 <br>
-                                 <button class="btn btn-primary">
-                                 <span class="fas fa-plus"></span> Agregar</button>
+                                <br>
+                                <button class="btn btn-primary">
+                                    <span class="fas fa-plus"></span> Agregar</button>
                             </form>
                         </div>
                     </div>
@@ -38,4 +38,6 @@
             </div>
         </div>
     </div>
+</div>
+
 @endsection
