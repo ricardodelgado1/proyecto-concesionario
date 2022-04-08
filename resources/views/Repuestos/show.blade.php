@@ -21,7 +21,7 @@
 
           </p>
           <p class="lh-sm fs-5"><b>Descripcion:</b>{{ $repuesto->descripcion}}</p>
-          <p class="lh-sm fs-5"><b>Precio:</b>{{ $repuesto->precio}}</p>
+          <p class="lh-sm fs-5"><b>Precio:</b> $ {{ number_format($repuesto->precio)}}</p>
 
           <p class="lh-sm fs-5"><b>Estado:</b>
              {{$repuesto->separado? 'Repuesto separado ' : 'Repuesto disponible'}}</p>

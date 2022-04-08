@@ -20,7 +20,7 @@
               <b>Marca:</b> {{$moto->marca}}
           </p>
           <p class="lh-sm fs-5"><b>Descripcion:</b>{{ $moto->descripcion}}</p>
-          <p class="lh-sm fs-5"><b>Precio:</b>{{ $moto->precio}}</p>
+          <p class="lh-sm fs-5"><b>Precio:</b> $ {{ number_format($moto->precio)}}</p>
 
           <p class="lh-sm fs-5"><b>Estado:</b>
              {{$moto->separada? 'Moto actualmente separada ' : 'Moto disponible'}}</p>
