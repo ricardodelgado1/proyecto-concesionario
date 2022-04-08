@@ -18,7 +18,6 @@
           <p class="text-start fs-5"><b>Marca:</b> {{$repuesto->marca}}
               <br>
               <b>Modelo:</b> {{$repuesto->modelo}}
-
           </p>
           <p class="lh-sm fs-5"><b>Descripcion:</b>{{ $repuesto->descripcion}}</p>
           <p class="lh-sm fs-5"><b>Precio:</b> $ {{ number_format($repuesto->precio)}}</p>
